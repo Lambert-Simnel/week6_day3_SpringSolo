@@ -1,4 +1,10 @@
 package com.food.kitchen.repository;
 
-public interface IngredientRepository {
+
+import com.food.kitchen.model.Ingredient;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IngredientRepository extends JpaRepository<Ingredient,Long> {
 }
