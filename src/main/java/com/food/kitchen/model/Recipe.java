@@ -25,7 +25,7 @@ public class Recipe {
     @JoinTable(name = "cookbook",
     joinColumns = @JoinColumn(name = "recipe_id"),
     inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
-    @JsonIgnoreProperties(value = {"Recipes"})
+    @JsonIgnoreProperties(value = {"recipes"})
     private Set<Ingredient> ingredients;
 
     public Recipe(Long id, String name, Integer cookingTime, Set<Ingredient> ingredients) {
