@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class RecipeController {
@@ -25,6 +26,12 @@ public class RecipeController {
     public ResponseEntity<List<Recipe>> getAllRecipes() {
         List<Recipe> recipes = recipeRepository.findAll();
         return ResponseEntity.ok().body(recipes);
+    }
+
+    @GetMapping("/recipe/{id}")
+    public ResponseEntity<Optional<Recipe>> getSpecificRecipe(Long id) {
+        Optional<Recipe> recipe = recipeRepository.findById(id);
+        return ResponseEntity.ok().body(recipe);
     }
 
     @PostMapping("/recipes")
