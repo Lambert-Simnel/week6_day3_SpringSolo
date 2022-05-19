@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class IngredientController {
@@ -23,6 +24,12 @@ public class IngredientController {
     public ResponseEntity<List<Ingredient>> getAllIngredients() {
         List<Ingredient> ingredients = ingredientRepository.findAll();
         return ResponseEntity.ok().body(ingredients);
+    }
+
+    @GetMapping("/ingredient/{id}")
+    public ResponseEntity<Optional<Ingredient>> getSpecificIngredient(Long id) {
+        Optional<Ingredient> ingredient = ingredientRepository.findById(id);
+        return ResponseEntity.ok().body(ingredient);
     }
 
     @PostMapping("/ingredients")
