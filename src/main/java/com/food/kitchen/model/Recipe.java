@@ -27,4 +27,46 @@ public class Recipe {
     inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     @JsonIgnoreProperties(value = {"Recipes"})
     private Set<Ingredient> ingredients;
+
+    public Recipe(Long id, String name, Integer cookingTime, Set<Ingredient> ingredients) {
+        this.id = id;
+        this.name = name;
+        this.cookingTime = cookingTime;
+        this.ingredients = ingredients;
+    }
+
+    public Recipe() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getCookingTime() {
+        return cookingTime;
+    }
+
+    public void setCookingTime(Integer cookingTime) {
+        this.cookingTime = cookingTime;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }
